@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include_once "core/init.php";
 	$shorten = new Shorten();
 	$conn = $shorten->conn;
@@ -19,6 +20,23 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<h2 class="text-center title">Url Shortener</h2>
+				<div class="shorten_update">
+					<?php if(isset($_SESSION['success']) && !empty($_SESSION['success'])) : ?>
+					<p class="bg-success"><?php 
+							if(isset($_SESSION['success']) && !empty($_SESSION['success'])){
+								 echo $_SESSION['success'];
+								 unset($_SESSION['success']);
+							} 
+					?></p>
+					<?php else : ?>
+					<p class="bg-danger"><?php 
+							if(isset($_SESSION['failed']) && !empty($_SESSION['failed'])){
+								 echo $_SESSION['failed'];
+								 unset($_SESSION['failed']);
+							} 
+					?></p>
+					<?php endif; ?>
+				</div>
 				<div class="shortener">
 					<form method="POST" action="shorten.php" class="form-inline">
 						  <div class="form-group">

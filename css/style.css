@@ -14,3 +14,9 @@ body{
 .shorten_url span.glyphicon-remove{
 	cursor:pointer;
 }
+.shorten_update p {
+  margin-bottom: 0;
+  padding: 10px;
+  right: 0;
+  width: 200px;
+}
