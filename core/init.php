@@ -28,7 +28,18 @@ class Shorten{
 		$conn = $this->conn;
 		$result = $conn->prepare($query);
 		$result->execute($bindings);
-		return $result;
+		while($result = $result->fetchAll() ){
+			return $result;
+		}		
+	}
+
+	public function redirect($code){
+		$query = $this->queryAll("SELECT * FROM url WHERE code = :code",array('code'=>$code),$this->conn);
+		if($query){
+			return $query[0]['url'];
+		}else{
+			return false;
+		}
 	}
 
 	

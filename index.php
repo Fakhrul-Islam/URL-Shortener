@@ -41,7 +41,7 @@
 							<tr>
 								<td><span class="glyphicon glyphicon-remove"></span></td>
 								<td><?php echo $url['url']; ?></td>
-								<td><a target="_blank" href="http://localhost/shortener/redirect.php">goo.gl/<?php echo $url['shortid']; ?></a></td>
+								<td><a target="_blank" href="http://localhost/shortener/<?php echo $url['code']; ?>">http://localhost/shortener/<?php echo $url['code']; ?></a></td>
 							</tr>
 							<?php endforeach; ?>
 						</tbody>
