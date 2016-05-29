@@ -29,11 +29,9 @@
 				<h2 class="text-center title">Url Shortener</h2>
 				<div class="shorten_update">
 					<?php if(isset($_SESSION['success']) && !empty($_SESSION['success'])) : ?>
-					<p class="bg-success"><?php 
-							if(isset($_SESSION['success']) && !empty($_SESSION['success'])){
-								 echo $_SESSION['success'];
-								 unset($_SESSION['success']);
-							} 
+					<p class="bg-success"><?php
+						 echo $_SESSION['success'];
+						 unset($_SESSION['success']);
 					?></p>
 					<?php else : ?>
 					<p class="bg-danger"><?php 
