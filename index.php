@@ -1,5 +1,8 @@
 <?php
 	include_once "core/init.php";
+	$shorten = new Shorten();
+	$conn = $shorten->conn;
+	$query = $shorten->queryAll("SELECT * FROM url ORDER BY addtime DESC",array(),$conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,16 +37,13 @@
 							<th>Shoren URL</th>
 						</thead>
 						<tbody>
+							<?php foreach($query as $url) : ?>
 							<tr>
 								<td><span class="glyphicon glyphicon-remove"></span></td>
-								<td>http://facebook.com</td>
-								<td><a href="">goo.gl/123</a></td>
+								<td><?php echo $url['url']; ?></td>
+								<td><a target="_blank" href="http://localhost/shortener/redirect.php">goo.gl/<?php echo $url['shortid']; ?></a></td>
 							</tr>
-							<tr>
-								<td><span class="glyphicon glyphicon-remove"></span></td>
-								<td>http://facebook.com</td>
-								<td><a href="">goo.gl/123</a></td>
-							</tr>
+							<?php endforeach; ?>
 						</tbody>
 					</table>
 				</div>
