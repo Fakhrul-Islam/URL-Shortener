@@ -4,6 +4,13 @@
 	$shorten = new Shorten();
 	$conn = $shorten->conn;
 	$query = $shorten->queryAll("SELECT * FROM url ORDER BY addtime DESC",array(),$conn);
+	if(isset($_GET['del']) && !empty($_GET['del'])){
+		$del = $_GET['del'];
+		$query = $shorten->query("DELETE FROM url WHERE code = :code",array('code'=>$del),$conn);
+		if($query){
+			header('Location:index.php');
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,6 +55,9 @@
 				</div>
 				<div class="shorten_url">
 					<h2 class="text-center">Shorten URL</h2>
+				<?php if(empty($query)) : ?>
+					<p class="text-danger">There is nothin to show</p>
+				<?php else: ?>
 					<table class="table table-bordered table-striped">
 						<thead>
 							<th></th>
@@ -57,13 +67,14 @@
 						<tbody>
 							<?php foreach($query as $url) : ?>
 							<tr>
-								<td><span class="glyphicon glyphicon-remove"></span></td>
+								<td><a href="index.php?del=<?=$url['code'];?>"><span class="glyphicon glyphicon-remove"></span></a></td>
 								<td><?php echo $url['url']; ?></td>
 								<td><a target="_blank" href="http://localhost/shortener/<?php echo $url['code']; ?>">http://localhost/shortener/<?php echo $url['code']; ?></a></td>
 							</tr>
 							<?php endforeach; ?>
 						</tbody>
 					</table>
+				<?php endif; ?>
 				</div>
 			</div>
 		<div class="col-md-2"></div>
