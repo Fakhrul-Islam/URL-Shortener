@@ -1,0 +1,41 @@
+[33mcommit 6b1a40aa92a371fff5791b88861f402211b5527f[m
+Author: Fakhrul <fakhrul945@gmail.com>
+Date:   Sun May 29 19:34:45 2016 +0600
+
+    URL and Short Code Insert Into Database
+
+[33mcommit 319d56c78e0bf121449cb37104aa80dba1cab060[m
+Author: Fakhrul <fakhrul945@gmail.com>
+Date:   Sun May 29 18:44:42 2016 +0600
+
+    Add Method to Generate and Insert Code
+
+[33mcommit 40b340ba057dde947fcdd808189f612e21045a04[m
+Author: Fakhrul <fakhrul945@gmail.com>
+Date:   Sun May 29 17:16:13 2016 +0600
+
+    Add redirect
+
+[33mcommit efe5e26ba61f9cfe4a9c994d54fc6da7227b25e4[m
+Author: Fakhrul <fakhrul945@gmail.com>
+Date:   Sun May 29 15:41:49 2016 +0600
+
+    Add Field
+
+[33mcommit 3cfb3b5a904ba5862036eb0a0963a4e90b002366[m
+Author: Fakhrul <fakhrul945@gmail.com>
+Date:   Sun May 29 14:56:32 2016 +0600
+
+    add connection and query method
+
+[33mcommit a05e9007d7b865794504a7cc54a524225d1e3caa[m
+Author: Fakhrul <fakhrul945@gmail.com>
+Date:   Sun May 29 14:26:45 2016 +0600
+
+    add init shorten and some file
+
+[33mcommit 15b3712479afee93838822ec15b3dc4e4a8434eb[m
+Author: Fakhrul <fakhrul945@gmail.com>
+Date:   Sun May 29 14:16:54 2016 +0600
+
+    First commit
