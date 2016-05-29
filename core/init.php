@@ -33,7 +33,6 @@ class Shorten{
 		}		
 	}
 	public function query($query,$bindings,$conn){
-		$conn = $this->conn;
 		$result = $conn->prepare($query);
 		$result->execute($bindings);
 		return $result;			
@@ -59,15 +58,15 @@ class Shorten{
 			return false;
 		}else{
 			$query = $this->query("SELECT * FROM url WHERE url = :url",array('url'=>$url),$conn);
-			$query = $query->fetchAll();
 			if( $query->rowCount()>0){
+				$query = $query->fetchAll(); 
 				$code = $query[0]['code'];
 				return $code;
 			}else{
 				$query = $this->query("INSERT INTO url(url,addtime) VALUES(:url,now())",array('url'=>$url),$conn);
 				$id = $conn->lastInsertId();
-				$genCode = $this->genereateCode($id);
-				$query = query("INSERT INTO url(code) VALUES(:code) WHERE id = :id",array('code'=>$genCode,'id'=>$id),$conn);
+				$genCode = $this->genereateCode($id);				
+				$query = $this->query("UPDATE url SET code = :code WHERE id = :id",array('id'=>$id,'code'=>$genCode),$conn);
 				return $genCode;
 			}
 		}
